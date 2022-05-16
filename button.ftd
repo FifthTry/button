@@ -1,0 +1,50 @@
+-- import: fpm
+-- import: fifthtry.github.io/button/assets
+
+-- ftd.color red: 
+light: red
+dark: red
+
+-- ftd.column:
+width: fill
+spacing: 20
+
+
+
+/-- cta:
+icon: ftd.image: 
+> src: $assets.files.assets.images.info-icon.svg
+> color: $red
+
+
+-- cta:
+icon: foo:
+> bar: ftd.text: hello again
+>> color: $red
+
+
+
+-- ftd.column foo:
+padding: 40
+background-color: $fpm.color.main.text
+ftd.ui bar:
+open: false
+
+--- bar:
+
+
+
+-- ftd.color green: 
+light: green
+dark: green
+
+
+-- ftd.row cta:
+width: 500
+padding: 50
+ftd.ui icon:
+background-color: $green
+
+--- icon:
+
+--- ftd.text: Button

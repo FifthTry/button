@@ -1,1 +1,221 @@
--- ft.page: hello
+-- import: fpm
+-- import: fifthtry.github.io/button/assets
+-- import: fifthtry.github.io/typography as tf
+-- import: fifthtry.github.io/package-doc/doc as pd
+
+
+
+
+-- ftd.column:
+id: code-wrap
+width: fill
+align: center
+spacing: 20
+padding-horizontal: 50
+padding-vertical: 20
+background-color: $fpm.color.main.background.base
+
+
+-- pd.package: Button component
+name: fifthtry.github.io/button
+
+This package can be used for button / CTA with it's available variations in any document.
+
+
+
+-- pd.output: Primary - extra-large - button without icon
+reference: $assets.files.assets.images.button.png
+reference-width: 117
+
+
+
+\-- button: Call to action
+primary: true
+extra-large: true
+
+
+
+-- button: Call to action
+primary: true
+extra-large: true
+
+
+-- container: code-wrap
+
+-- pd.output: Primary - extra-large - button with icon at left position
+reference: $assets.files.assets.images.button-icon-left.png
+reference-width: 150
+
+
+
+\-- button: Call to action
+primary: true
+extra-large: true
+icon-left: true
+
+
+
+-- button: Call to action
+primary: true
+extra-large: true
+icon-left: true
+
+
+-- container: code-wrap
+
+
+-- pd.output: Primary - extra-large - button with icon at right position
+reference: $assets.files.assets.images.button-icon-right.png
+reference-width: 150
+
+
+
+\-- button: Call to action
+primary: true
+extra-large: true
+icon-right: true
+
+
+
+-- button: Call to action
+primary: true
+extra-large: true
+icon-right: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button:
+caption title:
+boolean primary: false
+boolean secondary: false
+boolean tertiary: false
+boolean disabled: false
+boolean icon-left: false
+boolean icon-right: false
+boolean extra-large: false
+boolean large: false
+boolean medium: false
+boolean small: false
+integer radius: 4
+cursor: pointer
+
+--- primary:
+if: $primary
+title: $title
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+radius: $radius
+
+/--- secondary:
+if: $secondary
+cta-text: $title
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+
+
+/--- tertiary:
+if: $tertiary
+cta-text: $title
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+
+
+
+
+
+
+
+-- ftd.row primary:
+caption title:
+boolean primary: false
+boolean disabled: false
+boolean icon-left: false
+boolean icon-right: false
+boolean extra-large: false
+boolean large: false
+boolean medium: false
+boolean small: true
+optional ftd.color text-color: $fpm.color.main.cta-primary.text
+optional integer radius:
+background-color: $fpm.color.main.cta-primary.base
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+background-color if $MOUSE-IN: $fpm.color.main.cta-primary.pressed
+
+
+/spacing if $large: $fpm.space.space-2
+/spacing if $medium: $fpm.space.space-2
+/spacing if $small: $fpm.space.space-1
+
+
+--- ftd.row:
+if: $extra-large
+spacing: 16
+
+--- icon.alert:
+if: $icon-left
+color: $text-color
+scale: 1.3
+move-down: 5
+
+--- ftd.text: $title
+role: $fpm.type.label-big
+color: $text-color
+
+--- icon.alert:
+if: $icon-right
+color: $text-color
+scale: 1.3
+move-down: 5
+
+
+--- container: ftd.main 
+
+--- ftd.row:
+if: $large
+spacing: 8
+
+--- icon.alert:
+if: $icon-left
+color: $text-color
+scale: 1.3
+move-down: 5
+
+--- ftd.text: $title
+role: $fpm.type.label-big
+color: $text-color
+
+--- container: ftd.main 
