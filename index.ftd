@@ -48,14 +48,14 @@ reference-width: 150
 
 
 
-\-- button: Call to action
+\-- button: SUBMIT
 primary: true
 extra-large: true
 icon-left: true
 
 
 
--- button: Call to action
+-- button: SUBMIT
 primary: true
 extra-large: true
 icon-left: true
@@ -70,14 +70,14 @@ reference-width: 150
 
 
 
-\-- button: Call to action
+\-- button: BUTTON
 primary: true
 extra-large: true
 icon-right: true
 
 
 
--- button: Call to action
+-- button: BUTTON
 primary: true
 extra-large: true
 icon-right: true
