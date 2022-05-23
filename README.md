@@ -7,7 +7,7 @@ The button package(https://github.com/FifthTry/button). Use `FTD` custom button 
 
 Basic Usage:
 ```
--- button: TERTIARY
+\-- button: TERTIARY
 role: tertiary
 large: true
 ```
