@@ -6,6 +6,7 @@ The button package(https://github.com/FifthTry/button). Use `FTD` custom button 
 *Icons are used from `FTD` https://github.com/FifthTry/octicon package. To use `ftd` octicons refer: https://fifthtry.github.io/octicon/
 
 Basic Usage:
-`-- button: TERTIARY
+```-- button: TERTIARY
 role: tertiary
-large: true`
+large: true
+```
