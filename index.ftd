@@ -8,6 +8,11 @@
 
 
 
+
+
+
+
+
 -- ftd.column:
 id: code-wrap
 width: fill
@@ -112,6 +117,8 @@ if: $icon is not null
 string role:
 caption title:
 boolean primary: false
+boolean secondary: false
+boolean tertiary: false
 boolean disabled: false
 boolean icon-left: false
 boolean icon-right: false
@@ -215,7 +222,7 @@ border-radius: $radius
 
 --- button-display:
 title: $title
-primary: $primary
+secondary: $secondary
 disabled: $disabled
 icon-left: $icon-left
 icon-right: $icon-right
@@ -244,7 +251,7 @@ border-radius: $radius
 
 --- button-display:
 title: $title
-primary: $primary
+primary: $secondary
 disabled: $disabled
 icon-left: $icon-left
 icon-right: $icon-right
@@ -281,7 +288,7 @@ border-radius: $radius
 
 --- button-display:
 title: $title
-primary: $primary
+tertiary: $tertiary
 disabled: $disabled
 icon-left: $icon-left
 icon-right: $icon-right
@@ -310,7 +317,7 @@ border-radius: $radius
 
 --- button-display:
 title: $title
-primary: $primary
+tertiary: $tertiary
 disabled: $disabled
 icon-left: $icon-left
 icon-right: $icon-right
@@ -341,6 +348,8 @@ width: fill
 height: fill
 caption title:
 boolean primary: false
+boolean secondary: false
+boolean tertiary: false
 boolean disabled: false
 boolean icon-left: false
 boolean icon-right: false
@@ -823,7 +832,7 @@ margin-bottom: $fpm.space.space-5
 --- container: col-2
 
 --- button: BUTTON
-role: primary
+role: secondary
 large: true
 disabled: true
 icon-left: true
@@ -840,7 +849,7 @@ margin-top: $fpm.space.space-5
 lang: ftd
 
 \-- button: BUTTON
-role: primary
+role: secondary
 large: true
 disabled: true
 icon-left: true
@@ -861,7 +870,7 @@ margin-bottom: $fpm.space.space-5
 --- container: col-3
 
 --- button: BUTTON
-role: primary
+role: tertiary
 large: true
 disabled: true
 icon-right: true
@@ -877,7 +886,7 @@ margin-top: $fpm.space.space-5
 lang: ftd
 
 \-- button: BUTTON
-role: primary
+role: tertiary
 large: true
 disabled: true
 icon-right: true
