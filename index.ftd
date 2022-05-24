@@ -835,8 +835,6 @@ margin-bottom: $fpm.space.space-5
 role: secondary
 large: true
 disabled: true
-icon-left: true
-icon: icon.info:
 
 
 --- container: col-2
@@ -852,8 +850,6 @@ lang: ftd
 role: secondary
 large: true
 disabled: true
-icon-left: true
-icon: icon.info:
 
 --- container: ftd.main
 
@@ -873,8 +869,6 @@ margin-bottom: $fpm.space.space-5
 role: tertiary
 large: true
 disabled: true
-icon-right: true
-icon: icon.info:
 
 --- container: col-3
 
@@ -889,8 +883,6 @@ lang: ftd
 role: tertiary
 large: true
 disabled: true
-icon-right: true
-icon: icon.info:
 
 
 
