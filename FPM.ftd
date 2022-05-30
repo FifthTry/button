@@ -8,5 +8,4 @@ zip: github.com/fifthtry/button/archive/refs/heads/main.zip
 -- fpm.dependency: fifthtry.github.io/octicon as icon
 
 
--- fpm.auto-import: icon
 
