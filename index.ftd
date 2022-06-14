@@ -32,6 +32,20 @@ The button package(https://github.com/FifthTry/button). Use `FTD` custom button 
 *Icons are used from `FTD` https://github.com/FifthTry/octicon package. To use `ftd` octicons refer: https://fifthtry.github.io/octicon/
 
 
+How to use?
+
+Add below lines into `FPM.ftd` file:
+
+
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/button as button
+
+\-- fpm.auto-import: button
+
+
+
 
 -- button-table:
 
