@@ -2,6 +2,7 @@
 
 -- fpm.package: fifthtry.github.io/button
 zip: github.com/fifthtry/button/archive/refs/heads/main.zip
+base: https://raw.githubusercontent.com/fifthtry/button/main
 
 -- fpm.dependency: fifthtry.github.io/package-doc as pd
 -- fpm.dependency: fifthtry.github.io/typography as tf
