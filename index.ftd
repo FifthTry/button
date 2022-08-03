@@ -93,6 +93,7 @@ optional ftd.ui icon:
 optional string link:
 cursor if not $disabled: pointer
 link: $link
+width: fill
 
 --- button-type:
 role: $role
