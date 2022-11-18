@@ -312,37 +312,37 @@
       "blockquote": {
         "$kind$": "light",
         "dark": "#f0f0f0",
-        "light": "#f6f7f8"
+        "light": "#f0f0f0"
       },
       "code": {
         "$kind$": "light",
-        "dark": "#ffffff",
-        "light": "#f6f7f8"
+        "dark": "#9f9b9b45",
+        "light": "#9f9b9b45"
       },
       "link": {
         "$kind$": "light",
-        "dark": "#25c19f",
-        "light": "#136351"
+        "dark": "#18181b",
+        "light": "#18181b"
       },
       "link-code": {
         "$kind$": "light",
-        "dark": "#25c19f",
-        "light": "#136351"
+        "dark": "#9f9b9b45",
+        "light": "#9f9b9b45"
       },
       "link-visited": {
         "$kind$": "light",
-        "dark": "#0f5750",
-        "light": "#7b3ee8"
+        "dark": "#18181b",
+        "light": "#18181b"
       },
       "link-visited-code": {
         "$kind$": "light",
-        "dark": "#0f5750",
-        "light": "#136351"
+        "dark": "#18181b",
+        "light": "#18181b"
       },
       "ul-ol-li-before": {
         "$kind$": "light",
-        "dark": "#ffffff",
-        "light": "#000000"
+        "dark": "#18181b",
+        "light": "#18181b"
       }
     },
     "dependencies": {}
@@ -351,28 +351,28 @@
     "value": {
       "code": {
         "$kind$": "light",
-        "dark": "#25c19f",
-        "light": "#000000"
+        "dark": "#f6f7f8",
+        "light": "#f6f7f8"
       },
       "link": {
         "$kind$": "light",
-        "dark": "#25c19f",
-        "light": "#136351"
+        "dark": "#58a6ff",
+        "light": "#6a89b8"
       },
       "link-code": {
         "$kind$": "light",
-        "dark": "#25c19f",
-        "light": "#136351"
+        "dark": "#58a6ff",
+        "light": "#6a89b8"
       },
       "link-visited": {
         "$kind$": "light",
-        "dark": "#0f5750",
-        "light": "#7b3ee8"
+        "dark": "#a27de7",
+        "light": "#9475cb"
       },
       "link-visited-code": {
         "$kind$": "light",
-        "dark": "#0f5750",
-        "light": "#136351"
+        "dark": "#a27de7",
+        "light": "#6a89b8"
       },
       "ul-ol-li-before": {
         "$kind$": "light",
@@ -849,7 +849,7 @@ let ftd_utils = {
     },
 
     is_equal_condition: function (value, condition) {
-        let val = value.toString().replaceAll("\"", "");
+        let val = value === null ? "" : value.toString().replaceAll("\"", "");
         return ((value === condition)
             || (condition === "$IsNull$" && (val.trim().length === 0 || value === null))
             || (condition === "$IsNotNull$" && (val.trim().length !== 0 && value !== null))
@@ -1310,10 +1310,10 @@ window.ftd = (function () {
             if (action["parameters"].data !== undefined) {
                 let value = action["parameters"].data[0].value;
                 let reference = JSON.parse(action["parameters"].data[0].reference);
-                let resolved_data = ftd_utils.resolve_reference(value, reference, data, obj);
+                let filtered_data = filter_keys(reference, (key) => !key.startsWith("$"));
+                let resolved_data = ftd_utils.resolve_reference(value, filtered_data, data, obj);
                 let func = resolved_data.function? resolved_data.function.trim().replaceAll("-", "_").toLowerCase(): "http";
-                let method = resolved_data.method? resolved_data.method.trim().toUpperCase(): "GET";
-                window[func](id, method, resolved_data, reference);
+                window[func](id, resolved_data, reference);
             } else {
                 let target = action["target"].trim().replaceAll("-", "_");
                 window[target](id);
@@ -1572,37 +1572,79 @@ window.ftd = (function () {
     return exports;
 })();
 
-function console_print(id, data) {
-    console.log("console_print",data);
-}
+function filter_keys(data, filter_fn) {
+    if (!(data instanceof Object)) {
+        throw "data is not an object";
+    }
 
-function http(id, method="GET", data, reference) {
+    let o = {};
+
+    for(const key of Object.keys(data)) {
+        if (filter_fn(key)) {
+            o[key] = data[key];
+        }
+    }
+
+    return o;
+}
+function http(id, request_data, referenced_data) {
+    let method = request_data.method? request_data.method.trim().toUpperCase(): "GET";
     let xhr = new XMLHttpRequest();
-    xhr.open(method.toUpperCase(), data.url);
+    xhr.open(method, request_data.url);
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status !== 200) {
-            console.log("Error in calling url: ", data.url, xhr.responseText);
-            return;
-        }
         if (xhr.readyState !== 4) {
+            // this means request is still underway
+            // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
             return;
         }
+
+        if (xhr.status > 500) {
+            console.log("Error in calling url: ", request_data.url, xhr.responseText);
+            return;
+        }
+
         let response = JSON.parse(xhr.response);
-        console_log("API response", data.url, xhr.response)
-        if (!!response.data && !!response.data.url) {
-            window.location.href = response.data.url;
-        } else if (!!response.data && !!response.data.reload) {
+        if (!!response && !!response.redirect) {
+            // Warning: we don't handle header location redirect
+            window.location.href = response.redirect;
+        } else if (!!response && !!response.reload) {
             window.location.reload();
         } else {
-            for (const key of Object.keys(response.data)) {
-                ftd.set_value(id, key, response.data[key])
+            let data = {};
+
+            if (!!response.errors) {
+                for (key of Object.keys(response.errors)) {
+                    let value = response.errors[key];
+                    if (Array.isArray(value)) {
+                        // django returns a list of strings
+                        value = value.join(" ");
+                        // also django does not append `-error`
+                        key = key + "-error";
+                    }
+                    data[key] = value;
+                }
+            }
+
+            if (!!response.data) {
+                if (!!data) {
+                    console_log("both .errrors and .data are present in response, ignoring .data");
+                } else {
+                    data = response.data;
+                }
+            }
+
+            for (ftd_variable of Object.keys(data)) {
+                if (referenced_data["$" + ftd_variable]) {
+                    ftd_variable = referenced_data["$" + ftd_variable];
+                }
+                ftd.set_value(id, ftd_variable, data[key])
             }
         }
     };
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(request_data));
 }
 
 function redirect(id, data) {
@@ -1832,6 +1874,66 @@ window.ftd.post_init = function () {
         update_theme_color();
     }
 
+
+    window.ftd_warnings_delivered = {};
+
+    window["ls.set_boolean"] = function(_id, resolved_data, reference) {
+        // TODO: we need a better way to detect absence of localStorage
+        if (!isLocalStorageAvailable()) {
+            // we are doing this business so we only show the warning once in console
+            if (window.ftd_warnings_delivered["ls.set_boolean"]) {
+                return;
+            }
+            window.ftd_warnings_delivered["ls.set_boolean"] = true;
+
+            // TODO: we should have `ftd.localStorage-present` or some such, so we can
+            //       show a warning in UI as well, instead of just in console.
+
+            console.warn("localStorage not available, but ls.set-boolean was used");
+            return;
+        }
+
+        // TODO: we are not using id yet.
+        console.log("ls.set-boolean", reference["variable"], resolved_data["variable"]);
+        window.localStorage.setItem(reference["variable"], resolved_data["variable"]);
+    }
+
+    // source: https://stackoverflow.com/questions/16427636/check-if-localstorage-is-available
+    function isLocalStorageAvailable(){
+        if (!window.localStorage) {
+            return false;
+        }
+
+        var test = 'test';
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            return true;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    function scan_local_store() {
+        if (!isLocalStorageAvailable()) {
+            return;
+        }
+
+        Object.keys(window.localStorage).forEach(function(key){
+            let value = window.localStorage.getItem(key);
+            // value would be def string or null
+            // we want to set a boolean variable using `value`
+            // we want to only do if everything is alright
+            if (value === "true" || value === "false") {
+                // TODO: how do we handle id? we are hard-coding main here, which is wrong
+                window.ftd.set_value("main", key,  value === "true");
+            } else {
+                console.log("contract violation, expected boolean", key, "found", value);
+                // TODO: use key prefixes so we can delete the keys safely
+            }
+        });
+    }
+
     function update_theme_color() {
         let theme_color = window.ftd.get_value("main", FTD_THEME_COLOR);
         if (!!theme_color) {
@@ -1909,7 +2011,9 @@ window.ftd.post_init = function () {
     initialise_dark_mode();
     initialise_device();
     update_markdown_colors();
+    scan_local_store();
 };
+
 
             window.ftd.init("main", "ftd-data", "ftd-external-children");
 
