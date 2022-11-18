@@ -390,6 +390,7 @@ id: icon-id
 
 --- ftd.text: $title
 role: $fpm.type.label-big
+white-space: nowrap
 
 --- ftd.column:
 if: $icon-right
@@ -410,6 +411,7 @@ id: icon-id
 
 --- ftd.text: $title
 role: $fpm.type.label-big
+white-space: nowrap
 
 --- ftd.column:
 if: $icon-right
@@ -430,6 +432,7 @@ id: icon-id
 
 --- ftd.text: $title
 role: $fpm.type.label-big
+white-space: nowrap
 
 --- ftd.column:
 if: $icon-right
@@ -450,6 +453,7 @@ id: icon-id
 
 --- ftd.text: $title
 role: $fpm.type.label-big
+white-space: nowrap
 
 --- ftd.column:
 if: $icon-right
