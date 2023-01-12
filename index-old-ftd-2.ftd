@@ -1,0 +1,1155 @@
+-- import: fpm
+-- import: fifthtry.github.io/button/assets
+-- import: fifthtry.github.io/typography as tf
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: icon
+
+
+
+
+
+
+
+
+
+
+-- ftd.column:
+id: code-wrap
+width: fill
+align: center
+spacing: 20
+padding-horizontal: 50
+padding-vertical: 20
+background-color: $fpm.color.main.background.base
+
+
+-- pd.package: Buttons component
+name: fifthtry.github.io/button
+
+The button package(https://github.com/FifthTry/button). Use `FTD` custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+
+*Icons are used from `FTD` https://github.com/FifthTry/octicon package. To use `ftd` octicons refer: https://fifthtry.github.io/octicon/
+
+
+How to use?
+
+Add below lines into `FPM.ftd` file:
+
+
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/button as button
+
+\-- fpm.auto-import: button
+
+
+
+
+-- button-table:
+
+-- container: code-wrap
+
+-- button-table-large-disabled:
+
+-- container: code-wrap
+
+-- button-table-ex-large:
+
+-- container: code-wrap
+
+-- button-table-large:
+
+-- container: code-wrap
+
+-- button-table-medium:
+
+-- container: code-wrap
+
+-- button-table-small:
+
+-- container: code-wrap
+
+
+
+
+
+
+
+
+-- ftd.row button:
+caption title:
+string role:
+boolean disabled: false
+boolean icon-left: false
+boolean icon-right: false
+boolean extra-large: false
+boolean large: false
+boolean medium: false
+boolean small: false
+integer radius: 4
+optional ftd.ui icon:
+optional string link:
+cursor if not $disabled: pointer
+link: $link
+width: fill
+
+--- button-type:
+role: $role
+title: $title
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+radius: $radius
+
+--- ftd.column:
+scale: 1.3
+move-down: 3
+
+--- icon:
+if: $icon is not null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-type:
+string role:
+caption title:
+boolean primary: false
+boolean secondary: false
+boolean tertiary: false
+boolean disabled: false
+boolean icon-left: false
+boolean icon-right: false
+boolean extra-large: false
+boolean large: false
+boolean medium: false
+boolean small: true
+optional integer radius:
+open: true
+append-at: icon-id
+
+
+--- ftd.row:
+if: $role == primary
+color if not $disabled: $fpm.color.main.cta-primary.text
+color if $disabled: $fpm.color.main.cta-primary.disabled
+id: primary-id
+
+--- ftd.row:
+if: not $disabled
+background-color if $MOUSE-IN: $fpm.color.main.cta-primary.hover
+background-color: $fpm.color.main.cta-primary.base
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+
+
+--- button-display:
+title: $title
+primary: $primary
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+id: icon-id
+
+--- container: primary-id
+
+
+--- ftd.row:
+if: $disabled
+background-color: $fpm.color.main.cta-primary.disabled
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+
+
+
+--- button-display:
+title: $title
+primary: $primary
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+id: icon-id
+
+
+--- container: ftd.main
+
+
+--- ftd.row:
+if: $role == secondary
+color if not $disabled: $fpm.color.main.cta-secondary.text
+color if $disabled: $fpm.color.main.cta-secondary.disabled
+id: secondary-id
+
+
+--- ftd.row:
+if: not $disabled
+background-color if $MOUSE-IN: $fpm.color.main.cta-secondary.hover
+background-color: $fpm.color.main.cta-secondary.base
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+
+
+--- button-display:
+title: $title
+secondary: $secondary
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+id: icon-id
+
+--- container: secondary-id
+
+
+--- ftd.row:
+if: $disabled
+background-color: $fpm.color.main.cta-secondary.disabled
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+
+
+--- button-display:
+title: $title
+primary: $secondary
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+id: icon-id
+
+
+--- container: ftd.main
+
+
+--- ftd.row:
+if: $role == tertiary
+color if not $disabled: $fpm.color.main.cta-tertiary.text
+color if $disabled: $fpm.color.main.cta-tertiary.disabled
+id: tertiary-id
+
+--- ftd.row:
+if: not $disabled
+background-color if $MOUSE-IN: $fpm.color.main.cta-tertiary.hover
+background-color: $fpm.color.main.cta-tertiary.base
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+
+
+--- button-display:
+title: $title
+tertiary: $tertiary
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+id: icon-id
+
+--- container: tertiary-id
+
+
+--- ftd.row:
+if: $disabled
+background-color: $fpm.color.main.cta-tertiary.disabled
+padding-vertical if $extra-large: $fpm.space.space-6
+padding-horizontal if $extra-large: $fpm.space.space-6
+padding-vertical if $large: $fpm.space.space-3
+padding-horizontal if $large: $fpm.space.space-4
+padding-vertical if $medium: $fpm.space.space-2
+padding-horizontal if $medium: $fpm.space.space-4
+padding-vertical if $small: $fpm.space.space-1
+padding-horizontal if $small: $fpm.space.space-2
+border-radius: $radius
+
+
+--- button-display:
+title: $title
+tertiary: $tertiary
+disabled: $disabled
+icon-left: $icon-left
+icon-right: $icon-right
+extra-large: $extra-large
+large: $large
+medium: $medium
+small: $small
+id: icon-id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-display:
+width: fill
+height: fill
+caption title:
+boolean primary: false
+boolean secondary: false
+boolean tertiary: false
+boolean disabled: false
+boolean icon-left: false
+boolean icon-right: false
+boolean extra-large: false
+boolean large: false
+boolean medium: false
+boolean small: true
+optional integer radius:
+open: true
+append-at: icon-id
+
+--- ftd.row:
+if: $extra-large
+spacing: 16
+id: row-id
+
+--- ftd.column:
+if: $icon-left
+id: icon-id
+
+--- container: row-id
+
+--- ftd.text: $title
+role: $fpm.type.label-big
+white-space: nowrap
+
+--- ftd.column:
+if: $icon-right
+id: icon-id
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $large
+spacing: 8
+id: row-id
+
+--- ftd.column:
+if: $icon-left
+id: icon-id
+
+--- container: row-id
+
+--- ftd.text: $title
+role: $fpm.type.label-big
+white-space: nowrap
+
+--- ftd.column:
+if: $icon-right
+id: icon-id
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $medium
+spacing: 8
+id: row-id
+
+--- ftd.column:
+if: $icon-left
+id: icon-id
+
+--- container: row-id
+
+--- ftd.text: $title
+role: $fpm.type.label-big
+white-space: nowrap
+
+--- ftd.column:
+if: $icon-right
+id: icon-id
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $small
+spacing: 4
+id: row-id
+
+--- ftd.column:
+if: $icon-left
+id: icon-id
+
+--- container: row-id
+
+--- ftd.text: $title
+role: $fpm.type.label-big
+white-space: nowrap
+
+--- ftd.column:
+if: $icon-right
+id: icon-id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-table:
+width: fill
+spacing: 20
+margin-bottom: 30
+
+--- ftd.column:
+width: fill
+
+--- button: PRIMARY
+role: primary
+large: true
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-4
+
+--- cb.code:
+lang: ftd
+
+\-- button: PRIMARY
+role: primary
+large: true
+
+--- container: ftd.main
+
+--- ftd.column: 
+width: fill
+
+--- button: SECONDARY
+role: secondary
+large: true
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-4
+
+--- cb.code:
+lang: ftd
+
+\-- button: SECONDARY
+role: secondary
+large: true
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+
+--- button: TERTIARY
+role: tertiary
+large: true
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-4
+
+--- cb.code:
+lang: ftd
+
+\-- button: TERTIARY
+role: tertiary
+large: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-table-ex-large:
+width: fill
+spacing: 20
+margin-bottom: 30
+
+--- ftd.column:
+width: fill
+id: col-1
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Extra Large Button without icon:
+
+--- container: col-1
+
+--- button: BUTTON
+role: primary
+extra-large: true
+
+--- container: col-1
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+extra-large: true
+
+--- container: ftd.main
+
+--- ftd.column: 
+width: fill
+id: col-2
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Extra Large Button with icon position at left:
+
+--- container: col-2
+
+--- button: BUTTON
+role: primary
+extra-large: true
+icon-left: true
+icon: icon.info:
+
+--- container: col-2
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+extra-large: true
+icon-left: true
+icon: icon.info:
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+id: col-3
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Extra Large Button with icon position at right:
+
+--- container: col-3
+
+--- button: BUTTON
+role: primary
+extra-large: true
+icon-right: true
+icon: icon.info:
+
+--- container: col-3
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+extra-large: true
+icon-right: true
+icon: icon.info:
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-table-large:
+width: fill
+spacing: 20
+margin-bottom: 30
+
+--- ftd.column:
+width: fill
+id: col-1
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Large Button without icon:
+
+--- container: col-1
+
+--- button: BUTTON
+role: primary
+large: true
+
+--- container: col-1
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+large: true
+
+--- container: ftd.main
+
+--- ftd.column: 
+width: fill
+id: col-2
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Large Button with icon position at left:
+
+--- container: col-2
+
+--- button: BUTTON
+role: primary
+large: true
+icon-left: true
+icon: icon.info:
+
+--- container: col-2
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+large: true
+icon-left: true
+icon: icon.info:
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+id: col-3
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Large Button with icon position at right:
+
+--- container: col-3
+
+--- button: BUTTON
+role: primary
+large: true
+icon-right: true
+icon: icon.info:
+
+--- container: col-3
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+large: true
+icon-right: true
+icon: icon.info:
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-table-large-disabled:
+width: fill
+spacing: 20
+margin-bottom: 30
+
+--- ftd.column:
+width: fill
+id: col-1
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Large Button disabled without icon:
+
+--- container: col-1
+
+--- button: BUTTON
+role: primary
+large: true
+disabled: true
+
+--- container: col-1
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+large: true
+disabled: true
+
+--- container: ftd.main
+
+--- ftd.column: 
+width: fill
+id: col-2
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Large Button disabled with icon position at left:
+
+--- container: col-2
+
+--- button: BUTTON
+role: secondary
+large: true
+disabled: true
+icon-left: true
+icon: icon.info:
+
+
+--- container: col-2
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: secondary
+large: true
+disabled: true
+icon-left: true
+icon: icon.info:
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+id: col-3
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Large Button disabled with icon position at right:
+
+--- container: col-3
+
+--- button: BUTTON
+role: tertiary
+large: true
+disabled: true
+icon-right: true
+icon: icon.info:
+
+--- container: col-3
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: tertiary
+large: true
+disabled: true
+icon-right: true
+icon: icon.info:
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-table-medium:
+width: fill
+spacing: 20
+margin-bottom: 30
+
+--- ftd.column:
+width: fill
+id: col-1
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Medium Button without icon:
+
+--- container: col-1
+
+--- button: BUTTON
+role: primary
+medium: true
+
+--- container: col-1
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+medium: true
+
+--- container: ftd.main
+
+--- ftd.column: 
+width: fill
+id: col-2
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Medium Button with icon position at left:
+
+--- container: col-2
+
+--- button: BUTTON
+role: primary
+medium: true
+icon-left: true
+icon: icon.info:
+
+--- container: col-2
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+medium: true
+icon-left: true
+icon: icon.info:
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+id: col-3
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Medium Button with icon position at right:
+
+--- container: col-3
+
+--- button: BUTTON
+role: primary
+medium: true
+icon-right: true
+icon: icon.info:
+
+--- container: col-3
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+medium: true
+icon-right: true
+icon: icon.info:
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row button-table-small:
+width: fill
+spacing: 20
+margin-bottom: 30
+
+--- ftd.column:
+width: fill
+id: col-1
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Small Button without icon:
+
+--- container: col-1
+
+--- button: BUTTON
+role: primary
+small: true
+
+--- container: col-1
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+small: true
+
+--- container: ftd.main
+
+--- ftd.column: 
+width: fill
+id: col-2
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Small Button with icon position at left:
+
+--- container: col-2
+
+--- button: BUTTON
+role: primary
+small: true
+icon-left: true
+icon: icon.info:
+
+--- container: col-2
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+small: true
+icon-left: true
+icon: icon.info:
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+id: col-3
+
+--- ftd.column:
+width: fill
+margin-bottom: $fpm.space.space-5
+
+--- title-text: Small Button with icon position at right:
+
+--- container: col-3
+
+--- button: BUTTON
+role: primary
+small: true
+icon-right: true
+icon: icon.info:
+
+--- container: col-3
+
+--- ftd.column:
+width: fill
+margin-top: $fpm.space.space-5
+
+--- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+small: true
+icon-right: true
+icon: icon.info:
+
+
+
+
+
+
+
+
+
+-- ftd.text title-text:
+caption title:
+text: $title
+role: $fpm.type.label-big
+color: $fpm.color.main.text
