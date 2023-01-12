@@ -42,7 +42,7 @@ large: true
 
 -- component button:
 caption title:
-ftd.responsive-type role:
+string role:
 boolean disabled: false
 boolean icon-left: false
 boolean icon-right: false
@@ -111,7 +111,7 @@ boolean $mouse-in: false
 -- ftd.row:
 
 -- ftd.row:
-if: { button-type.role == button-type.primary }
+if: { button-type.role == "primary" }
 color if { !button-type.disabled }: $inherited.colors.cta-primary.text
 color if { button-type.disabled }: $inherited.colors.cta-primary.disabled
 ;; id: primary-id -- TODO FTD 0.3
@@ -138,7 +138,7 @@ primary: $button-type.primary
 disabled: $button-type.disabled
 icon-left: $button-type.icon-left
 icon-right: $button-type.icon-right
-extra-large: $extra-large
+extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
@@ -147,7 +147,7 @@ small: $button-type.small
 -- end: ftd.row
 
 -- ftd.row:
-if: $button-type.disabled
+if: { button-type.disabled }
 background.solid: $inherited.colors.cta-primary.disabled
 padding-vertical.px if { $button-type.extra-large }: 24
 padding-horizontal.px if { $button-type.extra-large }: 24
@@ -176,7 +176,7 @@ small: $button-type.small
 -- end: ftd.row
 
 -- ftd.row:
-if: { button-type.role == secondary }
+if: { button-type.role == "secondary" }
 color if { !$button-type.disabled }: $inherited.colors.cta-secondary.text
 color if { button-type.disabled }: $inherited.colors.cta-secondary.disabled
 ;; id: secondary-id -- TODO FTD 0.3
@@ -241,7 +241,7 @@ small: $button-type.small
 -- end: ftd.row
 
 -- ftd.row:
-if: { button-type.role == tertiary }
+if: { button-type.role == "tertiary" }
 color if { !button-type.disabled }: $inherited.colors.cta-tertiary.text
 color if { button-type.disabled }: $inherited.colors.cta-tertiary.disabled
 ;; id: tertiary-id -- TODO FTD 0.3
@@ -279,7 +279,7 @@ small: $button-type.small
 -- ftd.row:
 if: { button-type.disabled }
 background.solid: $inherited.colors.cta-tertiary.disabled
-ppadding-vertical.px if { button-type.extra-large }: 24
+padding-vertical.px if { button-type.extra-large }: 24
 padding-horizontal.px if { button-type.extra-large }: 24
 padding-vertical.px if { button-type.large }: 12
 padding-horizontal.px if { button-type.large }: 16
@@ -287,7 +287,7 @@ padding-vertical.px if { button-type.medium }: 8
 padding-horizontal.px if { button-type.medium }: 16
 padding-vertical.px if { button-type.small }: 4
 padding-horizontal.px if { button-type.small }: 8
-border-radius.px: $radius
+border-radius.px: $button-type.radius
 
 -- button-display:
 title: $button-type.title
@@ -318,7 +318,7 @@ small: $button-type.small
 
 
 
--- container button-display:
+-- component button-display:
 caption title:
 boolean primary: false
 boolean secondary: false
@@ -343,9 +343,13 @@ spacing.px: 16
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
+
+-- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
 ;; id: icon-id -- TODO FTD 0.3
+
+-- end: ftd.column
 
 -- ftd.text: $button-display.title
 role: $inherited.types.label-big
@@ -368,11 +372,15 @@ spacing.px: 8
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
+
+-- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
 ;; id: icon-id -- TODO FTD 0.3
 
--- ftd.text: $title
+-- end: ftd.column
+
+-- ftd.text: $button-display.title
 role: $inherited.types.label-big
 white-space: nowrap
 
@@ -393,9 +401,13 @@ spacing.px: 8
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
+
+-- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
 ;; id: icon-id -- TODO FTD 0.3
+
+-- end: ftd.column
 
 -- ftd.text: $button-display.title
 role: $inherited.types.label-big
@@ -418,10 +430,13 @@ spacing.px: 4
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
+
+-- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
 ;; id: icon-id -- TODO FTD 0.3
 
+-- end: ftd.column
 
 -- ftd.text: $button-display.title
 role: $inherited.types.label-big
