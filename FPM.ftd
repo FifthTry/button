@@ -6,7 +6,7 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/button/main
 
 -- fpm.dependency: fifthtry.github.io/package-doc as pd
 -- fpm.dependency: fifthtry.github.io/typography as tf
--- fpm.dependency: fifthtry.github.io/octicon as icon
+;; -- fpm.dependency: fifthtry.github.io/octicon as icon
 
 
 
