@@ -1,8 +1,8 @@
 -- import: fpm
-;;-- import: fifthtry.github.io/button/assets
-;;-- import: fifthtry.github.io/typography as tf
-;;-- import: fifthtry.github.io/package-doc/doc as pd
-;;-- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: fifthtry.github.io/button/assets
+-- import: fifthtry.github.io/typography as tf
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/code-block as cb
 ;;-- import: icon
 
 
@@ -24,9 +24,42 @@ padding-horizontal.px.px.px: 20
 padding-vertical.px.px.px: 20
 background.solid: $inherited.colors.background.base
 
--- button: PRIMARY
-role: primary
+-- pd.package: Buttons component
+name: fifthtry.github.io/button
+
+The button package(https://github.com/FifthTry/button). Use `FTD` custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+
+;; *Icons are used from `FTD` https://github.com/FifthTry/octicon package. To use `ftd` octicons ;; refer: https://fifthtry.github.io/octicon/
+
+
+
+How to use?
+
+Add below lines into `FPM.ftd` file:
+
+
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/button as button
+
+\-- fpm.auto-import: button
+
+
+-- button-table:
 large: true
+
+-- button-table:
+extra-large: true
+
+-- button-table:
+medium: true
+
+-- button-table:
+small: true
+
+
+-- button-table-large-disabled:
 
 
 -- end: ftd.column
@@ -113,7 +146,7 @@ boolean $mouse-in: false
 -- ftd.row:
 if: { button-type.role == "primary" }
 color if { !button-type.disabled }: $inherited.colors.cta-primary.text
-color if { button-type.disabled }: $inherited.colors.cta-primary.disabled
+color if { button-type.disabled }: $inherited.colors.text
 ;; id: primary-id -- TODO FTD 0.3
 
 -- ftd.row:
@@ -178,7 +211,7 @@ small: $button-type.small
 -- ftd.row:
 if: { button-type.role == "secondary" }
 color if { !$button-type.disabled }: $inherited.colors.cta-secondary.text
-color if { button-type.disabled }: $inherited.colors.cta-secondary.disabled
+color if { button-type.disabled }: $inherited.colors.text
 ;; id: secondary-id -- TODO FTD 0.3
 
 -- ftd.row:
@@ -243,7 +276,7 @@ small: $button-type.small
 -- ftd.row:
 if: { button-type.role == "tertiary" }
 color if { !button-type.disabled }: $inherited.colors.cta-tertiary.text
-color if { button-type.disabled }: $inherited.colors.cta-tertiary.disabled
+color if { button-type.disabled }: $inherited.colors.text
 ;; id: tertiary-id -- TODO FTD 0.3
 
 -- ftd.row:
@@ -456,3 +489,356 @@ children: $button-display.container
 -- end: ftd.row
 
 -- end: button-display
+
+
+
+
+
+
+
+
+
+
+-- component button-table:
+boolean large: false
+boolean extra-large: false
+boolean medium: false
+boolean small: false
+
+-- ftd.row:
+width: fill-container
+spacing.px: 20
+margin-bottom.px: 30
+
+-- ftd.column:
+width: fill-container
+
+-- button: PRIMARY
+if: { button-table.large }
+role: primary
+large: $button-table.large
+
+-- button: PRIMARY
+if: { button-table.extra-large }
+role: primary
+extra-large: $button-table.extra-large
+
+-- button: PRIMARY
+if: { button-table.medium }
+role: primary
+medium: $button-table.medium
+
+-- button: PRIMARY
+if: { button-table.small }
+role: primary
+small: $button-table.small
+
+-- ftd.column:
+width: fill-container
+margin-top.px: 16
+
+-- cb.code:
+if: { button-table.large }
+lang: ftd
+
+\-- button: PRIMARY
+role: primary
+large: true
+
+-- cb.code:
+if: { button-table.extra-large }
+lang: ftd
+
+\-- button: PRIMARY
+role: primary
+extra-large: true
+
+-- cb.code:
+if: { button-table.medium }
+lang: ftd
+
+\-- button: PRIMARY
+role: primary
+medium: true
+
+-- cb.code:
+if: { button-table.small }
+lang: ftd
+
+\-- button: PRIMARY
+role: primary
+small: true
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+
+-- button: SECONDARY
+if: { button-table.large }
+role: secondary
+large: $button-table.large
+
+-- button: SECONDARY
+if: { button-table.extra-large }
+role: secondary
+extra-large: $button-table.extra-large
+
+-- button: SECONDARY
+if: { button-table.medium }
+role: secondary
+medium: $button-table.medium
+
+-- button: SECONDARY
+if: { button-table.small }
+role: secondary
+small: $button-table.small
+
+-- ftd.column:
+width: fill-container
+margin-top.px: 16
+
+-- cb.code:
+if: { button-table.large }
+lang: ftd
+
+\-- button: SECONDARY
+role: secondary
+large: true
+
+-- cb.code:
+if: { button-table.extra-large }
+lang: ftd
+
+\-- button: SECONDARY
+role: secondary
+extra-large: true
+
+-- cb.code:
+if: { button-table.medium }
+lang: ftd
+
+\-- button: SECONDARY
+role: secondary
+medium: true
+
+-- cb.code:
+if: { button-table.small }
+lang: ftd
+
+\-- button: SECONDARY
+role: secondary
+small: true
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+
+-- button: TERTIARY
+if: { button-table.large }
+role: tertiary
+large: $button-table.large
+
+-- button: TERTIARY
+if: { button-table.extra-large }
+role: tertiary
+extra-large: $button-table.extra-large
+
+-- button: TERTIARY
+if: { button-table.medium }
+role: tertiary
+medium: $button-table.medium
+
+-- button: TERTIARY
+if: { button-table.small }
+role: tertiary
+small: $button-table.small
+
+-- ftd.column:
+width: fill-container
+margin-top.px: 16
+
+-- cb.code:
+if: { button-table.large }
+lang: ftd
+
+\-- button: TERTIARY
+role: tertiary
+large: true
+
+-- cb.code:
+if: { button-table.extra-large }
+lang: ftd
+
+\-- button: TERTIARY
+role: tertiary
+extra-large: true
+
+-- cb.code:
+if: { button-table.medium }
+lang: ftd
+
+\-- button: TERTIARY
+role: tertiary
+medium: true
+
+-- cb.code:
+if: { button-table.small }
+lang: ftd
+
+\-- button: TERTIARY
+role: tertiary
+small: true
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+
+-- end: ftd.row
+
+-- end: button-table
+
+
+
+
+
+
+
+
+-- component button-table-large-disabled:
+
+-- ftd.row:
+width: fill-container
+spacing.px: 20
+margin-bottom.px: 30
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.column:
+width: fill-container
+margin-bottom.px: 20
+
+-- title-text: Large Button disabled without icon:
+
+-- end: ftd.column
+
+-- button: BUTTON
+role: primary
+large: true
+disabled: true
+
+-- ftd.column:
+width: fill-container
+margin-top.px: 20
+
+-- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: primary
+large: true
+disabled: true
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.column:
+width: fill-container
+margin-bottom.px: 20
+
+-- title-text: Large Button disabled without icon:
+
+-- end: ftd.column
+
+-- button: BUTTON
+role: secondary
+large: true
+disabled: true
+;; icon-left: true -- TODO FTD 0.3
+;; icon: icon.info: -- TODO FTD 0.3
+
+-- ftd.column:
+width: fill-container
+margin-top.px: 20
+
+-- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: secondary
+large: true
+disabled: true
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.column:
+width: fill-container
+margin-bottom.px: 20
+
+-- title-text: Large Button disabled without icon:
+
+-- end: ftd.column
+
+-- button: BUTTON
+role: tertiary
+large: true
+disabled: true
+;; icon-left: true -- TODO FTD 0.3
+;; icon: icon.info: -- TODO FTD 0.3
+
+-- ftd.column:
+width: fill-container
+margin-top.px: 20
+
+-- cb.code:
+lang: ftd
+
+\-- button: BUTTON
+role: tertiary
+large: true
+disabled: true
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+-- end: button-table-large-disabled
+
+
+
+
+
+
+
+
+
+
+-- component title-text:
+caption title:
+
+-- ftd.text:
+text: $title-text.title
+role: $inherited.types.label-big
+color: $inherited.colors.text
+
+-- end: title-text
