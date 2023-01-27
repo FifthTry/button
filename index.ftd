@@ -19,7 +19,7 @@
 ;; id: code-wrap -- TODO FTD 0.3
 width: fill-container
 align-self: center
-spacing.px: 20
+spacing.fixed.px: 20
 padding-horizontal.px.px.px: 20
 padding-vertical.px.px.px: 20
 background.solid: $inherited.colors.background.base
@@ -372,7 +372,7 @@ height: fill-container
 
 -- ftd.row:
 if: { button-display.extra-large }
-spacing.px: 16
+spacing.fixed.px: 16
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
@@ -401,7 +401,7 @@ children: $button-display.container
 
 -- ftd.row:
 if: { button-display.large }
-spacing.px: 8
+spacing.fixed.px: 8
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
@@ -430,7 +430,7 @@ children: $button-display.container
 
 -- ftd.row:
 if: { button-display.medium }
-spacing.px: 8
+spacing.fixed.px: 8
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
@@ -459,7 +459,7 @@ children: $button-display.container
 
 -- ftd.row:
 if: { button-display.small }
-spacing.px: 4
+spacing.fixed.px: 4
 ;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
@@ -507,7 +507,7 @@ boolean small: false
 
 -- ftd.row:
 width: fill-container
-spacing.px: 20
+spacing.fixed.px: 20
 margin-bottom.px: 30
 
 -- ftd.column:
@@ -716,7 +716,7 @@ small: true
 
 -- ftd.row:
 width: fill-container
-spacing.px: 20
+spacing.fixed.px: 20
 margin-bottom.px: 30
 
 -- ftd.column:
