@@ -385,7 +385,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.label-big
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -414,7 +414,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.label-big
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -443,7 +443,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.label-big
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -472,7 +472,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.label-big
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -838,7 +838,7 @@ caption title:
 
 -- ftd.text:
 text: $title-text.title
-role: $inherited.types.label-big
+role: $inherited.types.label-large
 color: $inherited.colors.text
 
 -- end: title-text
