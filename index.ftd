@@ -1,4 +1,4 @@
--- import: fpm
+-- import: fastn
 -- import: fifthtry.github.io/button/assets
 -- import: fifthtry.github.io/typography as tf
 -- import: fifthtry.github.io/package-doc/doc as pd
@@ -35,15 +35,15 @@ The button package(https://github.com/FifthTry/button). Use `FTD` custom button 
 
 How to use?
 
-Add below lines into `FPM.ftd` file:
+Add below lines into `FASTN.ftd` file:
 
 
 -- cb.code:
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/button as button
+\-- fastn.dependency: fifthtry.github.io/button as button
 
-\-- fpm.auto-import: button
+\-- fastn.auto-import: button
 
 
 -- button-table:
