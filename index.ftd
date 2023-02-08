@@ -90,7 +90,6 @@ optional string link:
 -- ftd.row:
 cursor if { !$button.disabled }: pointer
 link: $button.link
-width: fill-container
 
 -- button-type:
 role: $button.role
