@@ -3,6 +3,8 @@
 -- import: fifthtry.github.io/typography as tf
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: fifthtry.github.io/package-doc/footer
+-- import: fifthtry.github.io/package-doc/forest-theme as ft
 ;;-- import: icon
 
 
@@ -12,17 +14,15 @@
 ;; Below are functions::
 
 
+-- ft.page:
+show-footer: true
+site-name: Buttons
 
+-- ft.page.footer:
 
+-- footer.fastn-footer:
 
--- ftd.column:
-;; id: code-wrap -- TODO FTD 0.3
-width: fill-container
-align-self: center
-spacing.fixed.px: 20
-padding-horizontal.px.px.px: 20
-padding-vertical.px.px.px: 20
-background.solid: $inherited.colors.background.base
+-- end: ft.page.footer
 
 -- pd.package: Buttons component
 name: fifthtry.github.io/button
@@ -62,7 +62,7 @@ small: true
 -- button-table-large-disabled:
 
 
--- end: ftd.column
+-- end: ft.page
 
 
 
