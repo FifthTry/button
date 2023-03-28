@@ -89,7 +89,7 @@ optional string link:
 
 -- ftd.row:
 cursor if { !$button.disabled }: pointer
-link: $button.link
+link if { !$button.disabled }: $button.link
 
 -- button-type:
 role: $button.role
@@ -516,21 +516,26 @@ width: fill-container
 if: { button-table.large }
 role: primary
 large: $button-table.large
+link: index.html
+
 
 -- button: PRIMARY
 if: { button-table.extra-large }
 role: primary
 extra-large: $button-table.extra-large
+link: index.html
 
 -- button: PRIMARY
 if: { button-table.medium }
 role: primary
 medium: $button-table.medium
+link: index.html
 
 -- button: PRIMARY
 if: { button-table.small }
 role: primary
 small: $button-table.small
+link: index.html
 
 -- ftd.column:
 width: fill-container
@@ -543,6 +548,7 @@ lang: ftd
 \-- button: PRIMARY
 role: primary
 large: true
+link: index.html
 
 -- cb.code:
 if: { button-table.extra-large }
@@ -551,6 +557,7 @@ lang: ftd
 \-- button: PRIMARY
 role: primary
 extra-large: true
+link: index.html
 
 -- cb.code:
 if: { button-table.medium }
@@ -559,6 +566,7 @@ lang: ftd
 \-- button: PRIMARY
 role: primary
 medium: true
+link: index.html
 
 -- cb.code:
 if: { button-table.small }
@@ -567,6 +575,7 @@ lang: ftd
 \-- button: PRIMARY
 role: primary
 small: true
+link: index.html
 
 -- end: ftd.column
 
@@ -579,21 +588,25 @@ width: fill-container
 if: { button-table.large }
 role: secondary
 large: $button-table.large
+link: index.html
 
 -- button: SECONDARY
 if: { button-table.extra-large }
 role: secondary
 extra-large: $button-table.extra-large
+link: index.html
 
 -- button: SECONDARY
 if: { button-table.medium }
 role: secondary
 medium: $button-table.medium
+link: index.html
 
 -- button: SECONDARY
 if: { button-table.small }
 role: secondary
 small: $button-table.small
+link: index.html
 
 -- ftd.column:
 width: fill-container
@@ -606,6 +619,7 @@ lang: ftd
 \-- button: SECONDARY
 role: secondary
 large: true
+link: index.html
 
 -- cb.code:
 if: { button-table.extra-large }
@@ -614,6 +628,7 @@ lang: ftd
 \-- button: SECONDARY
 role: secondary
 extra-large: true
+link: index.html
 
 -- cb.code:
 if: { button-table.medium }
@@ -622,6 +637,7 @@ lang: ftd
 \-- button: SECONDARY
 role: secondary
 medium: true
+link: index.html
 
 -- cb.code:
 if: { button-table.small }
@@ -630,6 +646,7 @@ lang: ftd
 \-- button: SECONDARY
 role: secondary
 small: true
+link: index.html
 
 -- end: ftd.column
 
@@ -642,21 +659,25 @@ width: fill-container
 if: { button-table.large }
 role: tertiary
 large: $button-table.large
+link: index.html
 
 -- button: TERTIARY
 if: { button-table.extra-large }
 role: tertiary
 extra-large: $button-table.extra-large
+link: index.html
 
 -- button: TERTIARY
 if: { button-table.medium }
 role: tertiary
 medium: $button-table.medium
+link: index.html
 
 -- button: TERTIARY
 if: { button-table.small }
 role: tertiary
 small: $button-table.small
+link: index.html
 
 -- ftd.column:
 width: fill-container
@@ -669,6 +690,7 @@ lang: ftd
 \-- button: TERTIARY
 role: tertiary
 large: true
+link: index.html
 
 -- cb.code:
 if: { button-table.extra-large }
@@ -677,6 +699,7 @@ lang: ftd
 \-- button: TERTIARY
 role: tertiary
 extra-large: true
+link: index.html
 
 -- cb.code:
 if: { button-table.medium }
@@ -685,6 +708,7 @@ lang: ftd
 \-- button: TERTIARY
 role: tertiary
 medium: true
+link: index.html
 
 -- cb.code:
 if: { button-table.small }
@@ -693,6 +717,7 @@ lang: ftd
 \-- button: TERTIARY
 role: tertiary
 small: true
+link: index.html
 
 -- end: ftd.column
 
