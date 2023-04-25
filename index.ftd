@@ -5,14 +5,6 @@
 -- import: fifthtry.github.io/package-doc/code-block as cb
 -- import: fifthtry.github.io/package-doc/footer
 -- import: fifthtry.github.io/package-doc/forest-theme as ft
-;;-- import: icon
-
-
-
-
-
-;; Below are functions::
-
 
 -- ft.page:
 show-footer: true
@@ -27,16 +19,13 @@ site-name: Buttons
 -- pd.package: Buttons component
 name: fifthtry.github.io/button
 
-The button package(https://github.com/FifthTry/button). Use `FTD` custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
-
-;; *Icons are used from `FTD` https://github.com/FifthTry/octicon package. To use `ftd` octicons ;; refer: https://fifthtry.github.io/octicon/
-
-
+The button package(https://github.com/FifthTry/button). Use `FTD` custom button
+styles for actions in forms, dialogs, and more with support for multiple sizes,
+states, and more.
 
 How to use?
 
 Add below lines into `FASTN.ftd` file:
-
 
 -- cb.code:
 lang: ftd
@@ -44,7 +33,6 @@ lang: ftd
 \-- fastn.dependency: fifthtry.github.io/button as button
 
 \-- fastn.auto-import: button
-
 
 -- button-table:
 large: true
@@ -58,9 +46,7 @@ medium: true
 -- button-table:
 small: true
 
-
 -- button-table-large-disabled:
-
 
 -- end: ft.page
 
@@ -146,7 +132,6 @@ boolean $mouse-in: false
 if: { button-type.role == "primary" }
 color if { !button-type.disabled }: $inherited.colors.cta-primary.text
 color if { button-type.disabled }: $inherited.colors.text
-;; id: primary-id -- TODO FTD 0.3
 
 -- ftd.row:
 if: { !button-type.disabled }
@@ -174,7 +159,6 @@ extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.row
 
@@ -201,7 +185,6 @@ extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.row
 
@@ -211,7 +194,6 @@ small: $button-type.small
 if: { button-type.role == "secondary" }
 color if { !$button-type.disabled }: $inherited.colors.cta-secondary.text
 color if { button-type.disabled }: $inherited.colors.text
-;; id: secondary-id -- TODO FTD 0.3
 
 -- ftd.row:
 if: { !button-type.disabled }
@@ -239,7 +221,6 @@ extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.row
 
@@ -266,7 +247,6 @@ extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.row
 
@@ -276,7 +256,6 @@ small: $button-type.small
 if: { button-type.role == "tertiary" }
 color if { !button-type.disabled }: $inherited.colors.cta-tertiary.text
 color if { button-type.disabled }: $inherited.colors.text
-;; id: tertiary-id -- TODO FTD 0.3
 
 -- ftd.row:
 if: { !button-type.disabled }
@@ -304,7 +283,6 @@ extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.row
 
@@ -331,7 +309,6 @@ extra-large: $button-type.extra-large
 large: $button-type.large
 medium: $button-type.medium
 small: $button-type.small
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.row
 
@@ -372,14 +349,12 @@ height: fill-container
 -- ftd.row:
 if: { button-display.extra-large }
 spacing.fixed.px: 16
-;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
 
 -- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
@@ -394,21 +369,18 @@ white-space: nowrap
 -- ftd.column:
 if: { button-display.icon-right }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
 -- ftd.row:
 if: { button-display.large }
 spacing.fixed.px: 8
-;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
 
 -- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
@@ -423,21 +395,18 @@ white-space: nowrap
 -- ftd.column:
 if: { button-display.icon-right }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
 -- ftd.row:
 if: { button-display.medium }
 spacing.fixed.px: 8
-;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
 
 -- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
@@ -452,21 +421,18 @@ white-space: nowrap
 -- ftd.column:
 if: { button-display.icon-right }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
 -- ftd.row:
 if: { button-display.small }
 spacing.fixed.px: 4
-;; id: row-id -- TODO FTD 0.3
 
 -- ftd.column:
 
 -- ftd.column:
 if: { button-display.icon-left }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
@@ -481,7 +447,6 @@ white-space: nowrap
 -- ftd.column:
 if: { button-display.icon-right }
 children: $button-display.container
-;; id: icon-id -- TODO FTD 0.3
 
 -- end: ftd.column
 
@@ -723,11 +688,11 @@ link: index.html
 
 -- end: ftd.column
 
-
-
 -- end: ftd.row
 
 -- end: button-table
+
+
 
 
 
@@ -842,7 +807,6 @@ disabled: true
 -- end: ftd.column
 
 -- end: ftd.column
-
 
 -- end: ftd.row
 
