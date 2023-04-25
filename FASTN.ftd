@@ -6,4 +6,3 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/button/main
 
 -- fastn.dependency: fifthtry.github.io/package-doc as pd
 -- fastn.dependency: fifthtry.github.io/typography as tf
-;; -- fastn.dependency: fifthtry.github.io/octicon as icon
