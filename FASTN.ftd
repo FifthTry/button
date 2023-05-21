@@ -1,8 +1,6 @@
 -- import: fastn
 
 -- fastn.package: fifthtry.github.io/button
-zip: github.com/fifthtry/button/archive/refs/heads/main.zip
-download-base-url: https://raw.githubusercontent.com/fifthtry/button/main
 
 -- fastn.dependency: fifthtry.github.io/package-doc as pd
 -- fastn.dependency: fifthtry.github.io/typography as tf
