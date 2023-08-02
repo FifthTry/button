@@ -160,6 +160,7 @@ $open: $toggle-event
 show-form: true
 placeholder: Your email address here
 cta-text: Continue
+cta-link: tertiary/
 footer: What is it? [Terms and conditions](modal-cover/)
 
 25% Off On Your First Purchase* Enter code WELCOME at checkout
