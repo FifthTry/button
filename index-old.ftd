@@ -1,15 +1,38 @@
+-- import: fastn
+-- import: fifthtry.github.io/button/assets
+-- import: fifthtry.github.io/typography as tf
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: fifthtry.github.io/package-doc/footer
+-- import: fifthtry.github.io/package-doc/forest-theme as ft
 
--- site-doc.doc-home: Button
-license-url: https://github.com/FifthTry/button/blob/main/LICENSE
-current-package: fifthtry.github.io/button
-show-tabs: false
-site-title: Button
-github-url: https://github.com/FifthTry/button
+-- ft.page:
+show-footer: true
+site-name: Buttons
 
--- site-doc.output:
-colors: $ftd.default-colors
+-- ft.page.footer:
 
--- site-doc.header: Demo
+-- footer.fastn-footer:
+
+-- end: ft.page.footer
+
+-- pd.package: Buttons component
+name: fifthtry.github.io/button
+
+The button package(https://github.com/FifthTry/button). Use `FTD` custom button
+styles for actions in forms, dialogs, and more with support for multiple sizes,
+states, and more.
+
+How to use?
+
+Add below lines into `FASTN.ftd` file:
+
+-- cb.code:
+lang: ftd
+
+\-- fastn.dependency: fifthtry.github.io/button as button
+
+\-- fastn.auto-import: button
 
 -- button-table:
 large: true
@@ -25,59 +48,7 @@ small: true
 
 -- button-table-large-disabled:
 
-
--- end: site-doc.output
-
-
--- site-doc.header: How to use button
-
-To use button components on your [fastn](https://fastn.com/) web project, add
-below into `FASTN.ftd` file:
-
--- cb.code:
-lang: ftd
-
-\-- fastn.dependency: fifthtry.github.io/button
-
--- site-doc.markdown:
-
-Now import `button` inside your `.ftd` file
-
--- cb.code:
-lang: ftd
-
-\-- import: fifthtry.github.io/button
-
--- site-doc.markdown:
-
-Use `button.button` inside your `.ftd` files
-
--- cb.rendered:
-
--- cb.rendered.input:
-
-\-- button: PRIMARY
-role: primary
-large: true
-link: index.html
-
--- cb.rendered.output:
-
--- site-doc.output:
-colors: $ftd.default-colors
-
--- button: PRIMARY
-role: primary
-large: true
-link: index.html
-
--- end: site-doc.output
-
--- end: cb.rendered.output
-
--- end: cb.rendered
-
--- end: site-doc.doc-home
+-- end: ft.page
 
 
 
@@ -168,11 +139,11 @@ $on-mouse-enter$: $ftd.set-bool($a = $button-type.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $button-type.mouse-in, v = false)
 background.solid if { $button-type.mouse-in }: $inherited.colors.cta-primary.hover
 background.solid: $inherited.colors.cta-primary.base
-padding-vertical.px if { button-type.extra-large }: 10
-padding-horizontal.px if { button-type.extra-large }: 20
-padding-vertical.px if { button-type.large }: 8
+padding-vertical.px if { button-type.extra-large }: 24
+padding-horizontal.px if { button-type.extra-large }: 24
+padding-vertical.px if { button-type.large }: 12
 padding-horizontal.px if { button-type.large }: 16
-padding-vertical.px if { button-type.medium }: 6
+padding-vertical.px if { button-type.medium }: 8
 padding-horizontal.px if { button-type.medium }: 16
 padding-vertical.px if { button-type.small }: 4
 padding-horizontal.px if { button-type.small }: 8
@@ -194,14 +165,14 @@ small: $button-type.small
 -- ftd.row:
 if: { button-type.disabled }
 background.solid: $inherited.colors.cta-primary.disabled
-padding-vertical.px if { button-type.extra-large }: 10
-padding-horizontal.px if { button-type.extra-large }: 20
-padding-vertical.px if { button-type.large }: 8
-padding-horizontal.px if { button-type.large }: 16
-padding-vertical.px if { button-type.medium }: 6
-padding-horizontal.px if { button-type.medium }: 16
-padding-vertical.px if { button-type.small }: 4
-padding-horizontal.px if { button-type.small }: 8
+padding-vertical.px if { $button-type.extra-large }: 24
+padding-horizontal.px if { $button-type.extra-large }: 24
+padding-vertical.px if { $button-type.large }: 12
+padding-horizontal.px if { $button-type.large }: 16
+padding-vertical.px if { $button-type.medium }: 8
+padding-horizontal.px if { $button-type.medium }: 16
+padding-vertical.px if { $button-type.small }: 4
+padding-horizontal.px if { $button-type.small }: 8
 border-radius.px: $button-type.radius
 
 -- button-display:
@@ -230,11 +201,11 @@ $on-mouse-enter$: $ftd.set-bool($a = $button-type.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $button-type.mouse-in, v = false)
 background.solid if { $button-type.mouse-in }: $inherited.colors.cta-secondary.hover
 background.solid: $inherited.colors.cta-secondary.base
-padding-vertical.px if { button-type.extra-large }: 10
-padding-horizontal.px if { button-type.extra-large }: 20
-padding-vertical.px if { button-type.large }: 8
+padding-vertical.px if { button-type.extra-large }: 24
+padding-horizontal.px if { button-type.extra-large }: 24
+padding-vertical.px if { button-type.large }: 12
 padding-horizontal.px if { button-type.large }: 16
-padding-vertical.px if { button-type.medium }: 6
+padding-vertical.px if { button-type.medium }: 8
 padding-horizontal.px if { button-type.medium }: 16
 padding-vertical.px if { button-type.small }: 4
 padding-horizontal.px if { button-type.small }: 8
@@ -256,11 +227,11 @@ small: $button-type.small
 -- ftd.row:
 if: { button-type.disabled }
 background.solid: $inherited.colors.cta-secondary.disabled
-padding-vertical.px if { button-type.extra-large }: 10
-padding-horizontal.px if { button-type.extra-large }: 20
-padding-vertical.px if { button-type.large }: 8
+padding-vertical.px if { button-type.extra-large }: 24
+padding-horizontal.px if { button-type.extra-large }: 24
+padding-vertical.px if { button-type.large }: 12
 padding-horizontal.px if { button-type.large }: 16
-padding-vertical.px if { button-type.medium }: 6
+padding-vertical.px if { button-type.medium }: 8
 padding-horizontal.px if { button-type.medium }: 16
 padding-vertical.px if { button-type.small }: 4
 padding-horizontal.px if { button-type.small }: 8
@@ -292,11 +263,11 @@ $on-mouse-enter$: $ftd.set-bool($a = $button-type.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $button-type.mouse-in, v = false)
 background.solid if { $button-type.mouse-in }: $inherited.colors.cta-tertiary.hover
 background.solid: $inherited.colors.cta-tertiary.base
-padding-vertical.px if { button-type.extra-large }: 10
-padding-horizontal.px if { button-type.extra-large }: 20
-padding-vertical.px if { button-type.large }: 8
+padding-vertical.px if { button-type.extra-large }: 24
+padding-horizontal.px if { button-type.extra-large }: 24
+padding-vertical.px if { button-type.large }: 12
 padding-horizontal.px if { button-type.large }: 16
-padding-vertical.px if { button-type.medium }: 6
+padding-vertical.px if { button-type.medium }: 8
 padding-horizontal.px if { button-type.medium }: 16
 padding-vertical.px if { button-type.small }: 4
 padding-horizontal.px if { button-type.small }: 8
@@ -318,11 +289,11 @@ small: $button-type.small
 -- ftd.row:
 if: { button-type.disabled }
 background.solid: $inherited.colors.cta-tertiary.disabled
-padding-vertical.px if { button-type.extra-large }: 10
-padding-horizontal.px if { button-type.extra-large }: 20
-padding-vertical.px if { button-type.large }: 8
+padding-vertical.px if { button-type.extra-large }: 24
+padding-horizontal.px if { button-type.extra-large }: 24
+padding-vertical.px if { button-type.large }: 12
 padding-horizontal.px if { button-type.large }: 16
-padding-vertical.px if { button-type.medium }: 6
+padding-vertical.px if { button-type.medium }: 8
 padding-horizontal.px if { button-type.medium }: 16
 padding-vertical.px if { button-type.small }: 4
 padding-horizontal.px if { button-type.small }: 8
@@ -388,8 +359,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.copy-large
-style: semi-bold
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -415,7 +385,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.button-large
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -441,7 +411,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.button-medium
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -467,7 +437,7 @@ children: $button-display.container
 -- end: ftd.column
 
 -- ftd.text: $button-display.title
-role: $inherited.types.button-small
+role: $inherited.types.label-large
 white-space: nowrap
 
 -- end: ftd.column
@@ -512,6 +482,7 @@ if: { button-table.large }
 role: primary
 large: $button-table.large
 link: index.html
+
 
 -- button: PRIMARY
 if: { button-table.extra-large }
