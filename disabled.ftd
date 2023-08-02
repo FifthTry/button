@@ -23,7 +23,7 @@ spacing: space-between
 
 -- button.button: Extra Large Button
 role: primary
-large: true
+extra-large: true
 disabled: true
 
 -- button.button: Large Button
